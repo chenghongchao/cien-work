@@ -1,0 +1,42 @@
+# dependencies
+/node_modules
+/node_modules_stale
+/.pnpm-store
+/.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+/coverage
+
+# tool caches
+/.cache
+/.turbo
+.eslintcache
+
+# local environment files
+.env*
+!.env.example
+
+# deployment
+.vercel
+
+# editor and operating system
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# protected metadata left by the previous local prototype
+/1/
