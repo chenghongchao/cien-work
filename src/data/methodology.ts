@@ -2,16 +2,16 @@ import type { LocalizedText } from "./types";
 
 export const methodology = {
   intro: {
-    zh: "我不倾向于在信息不完整时快速下结论。我会先补齐背景、数据、预算、平台和交付，再做判断。对于合作，我既考虑品牌的成本和权益，也考虑创作者的表达方式与合作体验。",
-    en: "I avoid rushing to conclusions when information is incomplete. I clarify the context, data, budget, platform, and deliverables before making a judgment. I consider both the brand's costs and rights and the creator's voice and partnership experience.",
+    zh: "我不是把任务逐条做完，而是先找到业务问题、建立判断标准，再把执行、数据和复盘连接成闭环。每一套流程都要既能支持当前结果，也能被下一位协作者接手。",
+    en: "I do not treat operations as a queue of tasks. I diagnose the business problem, define decision rules, and connect execution, data, and review into one loop that another operator can inherit.",
   } satisfies LocalizedText,
   steps: [
-    { zh: "收集信息", en: "Gather context" },
-    { zh: "验证数据", en: "Validate data" },
-    { zh: "明确目标", en: "Define goals" },
-    { zh: "判断价值", en: "Assess value" },
-    { zh: "设计方案", en: "Design approach" },
+    { zh: "诊断问题", en: "Diagnose" },
+    { zh: "明确目标", en: "Set the target" },
+    { zh: "建立标准", en: "Define decision rules" },
+    { zh: "设计系统", en: "Build the system" },
     { zh: "推进执行", en: "Execute" },
-    { zh: "复盘优化", en: "Review & improve" },
+    { zh: "衡量结果", en: "Measure" },
+    { zh: "沉淀与扩展", en: "Document & scale" },
   ] satisfies LocalizedText[],
 };

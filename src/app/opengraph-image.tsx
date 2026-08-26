@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Cien - Social Media & Influencer Marketing Specialist";
+export const alt = "Cien - Social Media & Creator Operations Lead";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -45,10 +45,10 @@ export default function OpenGraphImage() {
 
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <div style={{ maxWidth: 920, fontSize: 70, lineHeight: 1.02, letterSpacing: "-0.055em", fontWeight: 700 }}>
-            Social Media &amp; Influencer Marketing Specialist
+            Social Media &amp; Creator Operations Lead
           </div>
           <div style={{ color: "#666666", fontSize: 25 }}>
-            Creator partnerships / Content operations / Performance analysis / Workflow design
+            Two brands / Creator partnerships / Content growth / Scalable operating systems
           </div>
         </div>
 

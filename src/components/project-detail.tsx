@@ -28,6 +28,18 @@ export function ProjectDetail({ project }: { project: Project }) {
       content: project.problem[language],
     },
   ];
+  const decisionSections = [
+    {
+      index: "03",
+      label: copy.detailLabels.diagnosis,
+      items: project.diagnosis[language],
+    },
+    {
+      index: "04",
+      label: copy.detailLabels.decision,
+      items: project.decision[language],
+    },
+  ];
 
   return (
     <article>
@@ -107,29 +119,34 @@ export function ProjectDetail({ project }: { project: Project }) {
               </section>
             ))}
 
-            <section className="grid gap-5 border-t border-border py-10 sm:grid-cols-[0.42fr_1.58fr]">
-              <h2 className="flex gap-3 text-sm font-semibold">
-                <span className="text-accent">03</span>
-                {copy.detailLabels.method}
-              </h2>
-              <ol className="grid gap-3">
-                {project.method[language].map((item, index) => (
-                  <li
-                    key={item}
-                    className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-border pb-4 text-base leading-7 text-muted"
-                  >
-                    <span className="text-xs font-bold text-accent">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ol>
-            </section>
+            {decisionSections.map((section) => (
+              <section
+                key={section.label}
+                className="grid gap-5 border-t border-border py-10 sm:grid-cols-[0.42fr_1.58fr]"
+              >
+                <h2 className="flex gap-3 text-sm font-semibold">
+                  <span className="text-accent">{section.index}</span>
+                  {section.label}
+                </h2>
+                <ol className="grid gap-3">
+                  {section.items.map((item, index) => (
+                    <li
+                      key={item}
+                      className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-border pb-4 text-base leading-7 text-muted"
+                    >
+                      <span className="text-xs font-bold text-accent">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            ))}
 
             <section className="grid gap-5 border-t border-border py-10 sm:grid-cols-[0.42fr_1.58fr]">
               <h2 className="flex gap-3 text-sm font-semibold">
-                <span className="text-accent">04</span>
+                <span className="text-accent">05</span>
                 {copy.detailLabels.execution}
               </h2>
               <ul className="grid gap-3 sm:grid-cols-2">
@@ -147,7 +164,34 @@ export function ProjectDetail({ project }: { project: Project }) {
 
             <section className="grid gap-5 border-t border-border py-10 sm:grid-cols-[0.42fr_1.58fr]">
               <h2 className="flex gap-3 text-sm font-semibold">
-                <span className="text-accent">05</span>
+                <span className="text-accent">06</span>
+                {copy.detailLabels.evidence}
+              </h2>
+              <div className="grid gap-3 sm:grid-cols-3">
+                {project.evidence.map((item) => (
+                  <div
+                    key={item.value}
+                    className="border border-border bg-paper p-5"
+                  >
+                    <strong className="block text-3xl tracking-[-0.05em] text-ink">
+                      {item.value}
+                    </strong>
+                    <span className="mt-3 block text-sm leading-6 text-muted">
+                      {item.label[language]}
+                    </span>
+                    {item.detail ? (
+                      <span className="mt-1 block text-xs font-semibold text-accent">
+                        {item.detail[language]}
+                      </span>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="grid gap-5 border-t border-border py-10 sm:grid-cols-[0.42fr_1.58fr]">
+              <h2 className="flex gap-3 text-sm font-semibold">
+                <span className="text-accent">07</span>
                 {copy.detailLabels.result}
               </h2>
               <p className="border-l-2 border-accent pl-6 text-2xl font-semibold leading-9 tracking-[-0.03em] sm:text-3xl">
@@ -157,7 +201,7 @@ export function ProjectDetail({ project }: { project: Project }) {
 
             <section className="grid gap-5 border-y border-border py-10 sm:grid-cols-[0.42fr_1.58fr]">
               <h2 className="flex gap-3 text-sm font-semibold">
-                <span className="text-accent">06</span>
+                <span className="text-accent">08</span>
                 {copy.detailLabels.reflection}
               </h2>
               <p className="max-w-3xl text-lg leading-8 text-muted">

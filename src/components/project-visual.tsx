@@ -1,4 +1,4 @@
-import type { Project } from "@/data/projects";
+import { projects, type Project } from "@/data/projects";
 
 const styles: Record<Project["accent"], string> = {
   red: "bg-accent text-white",
@@ -26,7 +26,7 @@ export function ProjectVisual({ project }: { project: Project }) {
         </p>
         <p className="max-w-[12ch] text-5xl font-semibold leading-[0.86] tracking-[-0.065em] sm:text-6xl">
           {project.number}
-          <span className="opacity-30"> / 04</span>
+          <span className="opacity-30"> / {String(projects.length).padStart(2, "0")}</span>
         </p>
       </div>
 

@@ -11,20 +11,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Cien｜社媒运营与 KOL Influencer Marketing 个人主页",
+    default: "Cien｜海外社媒与 KOL 运营负责人",
     template: "%s",
   },
   description:
-    "Cien 的个人主页与作品集，展示社媒运营、KOL 合作、内容策略、数据分析与运营流程搭建经验。",
-  keywords: [
-    "Cien",
-    "程红超",
-    "社媒运营",
-    "KOL 营销",
-    "Influencer Marketing",
-    "Creator Partnerships",
-    "Social Media Operations",
-  ],
+    "Cien 的个人作品集：独立负责 FlyAchilles 与 Pulens 两个北美品牌的社媒、创作者合作与运营系统搭建。",
   authors: [{ name: `${profile.name} / ${profile.chineseName}` }],
   creator: profile.name,
   alternates: { canonical: "/" },
@@ -33,16 +24,16 @@ export const metadata: Metadata = {
     locale: "zh_CN",
     alternateLocale: ["en_US"],
     url: "/",
-    title: "Cien｜社媒运营与 KOL Influencer Marketing 个人主页",
+    title: "Cien｜海外社媒与 KOL 运营负责人",
     description:
-      "展示社媒运营、创作者合作、内容策略、数据分析与运营流程搭建经验。",
+      "独立负责两个北美品牌的内容策略、创作者合作、数据复盘与可扩展运营系统。",
     siteName: "Cien Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cien | Social Media & Influencer Marketing Specialist",
+    title: "Cien | Social Media & Creator Operations Lead",
     description:
-      "Creator partnerships, content operations, performance analysis, and scalable workflows.",
+      "Operating two North American brands across creator partnerships, content strategy, performance analysis, and scalable workflows.",
   },
 };
 

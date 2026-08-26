@@ -35,13 +35,13 @@ export function Hero() {
           <h1 className="max-w-[12ch] text-balance text-[clamp(3.4rem,7.2vw,7.1rem)] font-semibold leading-[0.92] tracking-[-0.075em]">
             {language === "zh" ? (
               <>
-                Cien，<br />社媒运营与
-                <span className="text-accent"> KOL 合作</span>专员
+                Cien，<br />海外社媒与
+                <span className="text-accent"> KOL 运营</span>负责人
               </>
             ) : (
               <>
-                Cien — Social Media &amp;
-                <span className="text-accent"> Influencer Marketing</span>
+                Cien — Social &amp;
+                <span className="text-accent"> Creator Operations</span> Lead
               </>
             )}
           </h1>
@@ -97,7 +97,11 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="mt-3 grid grid-cols-2 border border-border bg-white sm:grid-cols-4">
+          <div className="mt-3 flex items-center justify-between text-[9px] font-bold uppercase tracking-[0.14em] text-muted">
+            <span>{copy.factsLabel}</span>
+            <span>{profile.dataAsOf[language]}</span>
+          </div>
+          <div className="mt-2 grid grid-cols-2 border border-border bg-white sm:grid-cols-4">
             {verifiedFacts.map((fact) => (
               <div
                 key={fact.value}

@@ -8,10 +8,25 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: { zh: "创作者合作", en: "Creator Partnership" },
+    title: { zh: "双品牌运营", en: "Multi-brand Operations" },
     description: {
-      zh: "从开发到交付的完整合作流程",
-      en: "The full partnership cycle, from sourcing to delivery",
+      zh: "为不同品牌建立独立的内容语言与运营节奏",
+      en: "Distinct content languages and operating rhythms for different brands",
+    },
+    items: [
+      "Brand Positioning",
+      "Content System",
+      "Platform Strategy",
+      "Editorial Planning",
+      "Asset Standards",
+      "Performance Review",
+    ],
+  },
+  {
+    title: { zh: "创作者合作", en: "Creator Operations" },
+    description: {
+      zh: "从数据库、筛选和谈判到交付与复盘",
+      en: "From database and evaluation to negotiation, delivery, and review",
     },
     items: [
       "Creator Sourcing",
@@ -19,23 +34,7 @@ export const skillGroups: SkillGroup[] = [
       "Negotiation",
       "Contract & Brief",
       "Deliverable Management",
-      "Relationship Management",
-    ],
-  },
-  {
-    title: { zh: "社媒运营", en: "Social Media Operations" },
-    description: {
-      zh: "围绕平台语境进行内容适配与发布",
-      en: "Platform-native content adaptation and publishing",
-    },
-    items: [
-      "TikTok",
-      "Instagram",
-      "YouTube",
-      "Facebook",
-      "Pinterest",
-      "Content Publishing",
-      "Platform Adaptation",
+      "Usage Rights",
     ],
   },
   {
@@ -45,26 +44,26 @@ export const skillGroups: SkillGroup[] = [
       en: "Data-informed evaluation of partnerships and content",
     },
     items: [
-      "CPM Evaluation",
-      "Average View Analysis",
+      "Average / Median Views",
+      "CPM / Implied CPM",
       "Audience Quality",
-      "Campaign Performance",
-      "Content Review",
-      "Weekly Reporting",
+      "Commercial-post Fit",
+      "Content Retention",
+      "Cross-platform Performance",
     ],
   },
   {
-    title: { zh: "流程与系统", en: "Workflow & Systems" },
+    title: { zh: "系统与团队扩展", en: "Systems & Team Readiness" },
     description: {
-      zh: "把分散信息整理成可复用的运营系统",
-      en: "Turning fragmented information into reusable systems",
+      zh: "把个人执行沉淀为可交接、可协作的结构",
+      en: "Turning individual execution into handoff-ready team workflows",
     },
     items: [
       "Spreadsheet System Design",
       "KOL Database",
-      "Process Optimization",
-      "Monthly Review",
-      "Dashboard Structure",
+      "SOP & Decision Rules",
+      "Handoff-ready Process",
+      "Review Structure",
       "Cross-platform Tracking",
     ],
   },

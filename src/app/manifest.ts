@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Cien Portfolio",
     short_name: "Cien",
-    description: "Social Media & Influencer Marketing Specialist",
+    description: "Social Media & Creator Operations Lead",
     start_url: "/",
     display: "standalone",
     background_color: "#F7F7F5",
