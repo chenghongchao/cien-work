@@ -4,21 +4,21 @@ export const profile = {
   name: "Cien",
   chineseName: "程红超",
   role: {
-    zh: "海外社媒与 KOL 运营负责人",
-    en: "Social Media & Influencer Operations Lead",
+    zh: "海外社媒运营 / Creator & KOL Operations",
+    en: "Social Media & Creator Operations",
   } satisfies LocalizedText,
   positioning: {
-    zh: "独立负责双品牌社媒、创作者合作与运营系统搭建。",
-    en: "Owning multi-brand social, creator partnerships, and operating systems end to end.",
+    zh: "独立负责北美品牌社媒运营，并从 0 到 1 搭建 Creator / KOL 合作体系。",
+    en: "Owning North America-focused social operations and building creator operations from 0 to 1.",
   } satisfies LocalizedText,
   heroDescription: {
-    zh: "从品牌定位、内容策略和 KOL 开发，到商务谈判、交付管理与数据复盘，我把两套北美品牌业务整理成可持续推进、可交接、可扩展的运营系统。",
-    en: "From brand positioning and creator sourcing to negotiation, delivery, and performance review, I build operating systems that can scale beyond one person across two North American brands.",
+    zh: "从多平台内容、北美受众校准和增长测试，到 Creator 筛选、商务判断、寄样、内容审核、上线追踪、数据回收与付款，我把分散的运营动作整理成能够持续运转的业务流程。",
+    en: "From multi-platform content, North America audience repositioning and growth testing to creator evaluation, negotiation, seeding, review, publishing, tracking and payment, I turn fragmented execution into an operating system that can run end to end.",
   } satisfies LocalizedText,
-  company: "FlyAchilles · Pulens",
+  company: "FlyAchilles",
   dataAsOf: {
-    zh: "数据截至 2026.08.26",
-    en: "Data as of Aug 26, 2026",
+    zh: "更新至 2026.09",
+    en: "Updated Sep 2026",
   } satisfies LocalizedText,
   email: "chenghongchao72@gmail.com",
   location: "",
@@ -29,45 +29,45 @@ export const profile = {
   },
   socials: [] as Array<{ label: string; href: string }>,
   focus: [
-    "Multi-brand Operations",
-    "Creator Partnerships",
+    "North America Social",
+    "Creator Operations",
     "Content Strategy",
-    "Performance Analysis",
-    "Scalable Workflows",
+    "Audience Repositioning",
+    "Project Ownership",
   ],
   about: {
     zh: [
-      "我独立搭建并运营 FlyAchilles 与 Pulens 两个北美照明品牌的社媒和创作者合作体系。两个品牌面向不同受众、使用不同内容语言，也需要独立的选题、素材标准、平台策略与复盘方式。",
-      "在创作者业务中，我从零建立了 6,000+ 自主开发的 KOL 数据库，累计联系 2,500+ 位创作者，并推进 35 个合作进入确认与发货阶段。我的工作覆盖筛选、外联、数据判断、谈判、合同、Brief、交付与上线复盘。",
-      "目前这些链路主要由我独立执行，但系统不是为“一个人一直做”而设计。我会把判断标准、状态、文件和复盘结构沉淀下来，使工作能够被交接、协作，并具备后续带团队扩展的基础。",
+      "我负责品牌 TikTok、Instagram、Facebook、YouTube 与 Pinterest 的海外社媒运营。接手时账号长期缺乏系统管理、更新不稳定，自然推荐较弱，且核心受众从全球多地跑偏。通过重建内容定位、住宅场景、文案标签与持续 AB Test，除长期广告投放的 YouTube 外，其余核心平台北美受众校准至 80%+，TikTok 达 90%+。",
+      "Creator / KOL 是我从 0 搭建的业务链路：累计开发 8,000+ Creator、处理 3,000+ 回复，推动 37 位 Creator 进入正式合作并完成寄样；已回收 24 份内容、8 个项目正式上线。工作覆盖搜索、Audience 与数据审核、商业判断、谈判、选品、物流、Brief、Draft Review、Tracking、上线、数据回收与付款。",
+      "海外社媒岗位由我单人负责，因此我不仅执行内容，也需要制定筛选与审核标准、搭建 SOP、判断优先级，并协调老板、采购/仓储、客服、网站、设计、财务和 Creator 处理异常，把项目从开发持续推进到上线和结算。",
     ],
     en: [
-      "I independently build and operate the social and creator-partnership systems for FlyAchilles and Pulens, two North American lighting brands with different audiences, content languages, asset standards, channel strategies, and review criteria.",
-      "For creator operations, I built a self-sourced database of 6,000+ creators, managed outreach to 2,500+, and moved 35 collaborations into confirmation and fulfillment. My scope covers evaluation, outreach, negotiation, agreements, briefs, delivery, publishing, and review.",
-      "The work is currently execution-led by me, but the system is designed to outgrow a single operator. I document decision rules, statuses, files, and review structures so the workflow can be handed over, shared, and scaled by a team.",
+      "I manage the brand's TikTok, Instagram, Facebook, YouTube, and Pinterest operations. I inherited accounts with inconsistent publishing, weak organic distribution, and audience geography drifting far beyond the target market. By rebuilding content positioning, residential context, copy, hashtags, and an ongoing A/B testing loop, I repositioned the core organic channels to 80%+ North America audience share, with TikTok above 90%.",
+      "I built the Creator / KOL operation from zero: 8,000+ creators sourced, 3,000+ replies handled, and 37 creators moved into confirmed partnerships and product seeding. So far, 24 pieces of creator content have been returned and 8 projects have gone live. My scope spans sourcing, audience and data validation, commercial evaluation, negotiation, product selection, logistics, briefs, draft review, tracking, publishing, reporting, and payment.",
+      "As the sole overseas social operator, I do more than execute content. I define screening and review standards, build SOPs, set priorities, and coordinate leadership, procurement/warehouse, customer service, web, design, finance, and creators to move projects from outreach through publishing and settlement.",
     ],
   } satisfies LocalizedList,
   workingPrinciple: {
-    zh: "先建立判断标准，再让执行可复制；既对结果负责，也为团队扩展留下结构。",
-    en: "Build the decision system first, make execution repeatable, and leave a structure a team can scale.",
+    zh: "先把判断标准和流程搭清楚，再让执行可复制；对结果负责，也让项目能够被协作和扩展。",
+    en: "Build clear decision rules and workflows first, then make execution repeatable, accountable, and ready to scale.",
   } satisfies LocalizedText,
 };
 
 export const verifiedFacts = [
   {
-    value: "6K+",
-    label: { zh: "自主开发 KOL 数据库", en: "Self-sourced creator database" },
+    value: "80%+",
+    label: { zh: "核心平台北美受众", en: "North America audience on core channels" },
   },
   {
-    value: "2.5K+",
-    label: { zh: "累计联系创作者", en: "Creators contacted" },
+    value: "90%+",
+    label: { zh: "TikTok 北美受众", en: "TikTok North America audience" },
   },
   {
-    value: "35",
-    label: { zh: "确认并完成发货", en: "Confirmed and fulfilled" },
+    value: "8K+",
+    label: { zh: "Creator 开发", en: "Creators sourced" },
   },
   {
-    value: "2",
-    label: { zh: "独立运营北美品牌", en: "Brands operated end to end" },
+    value: "37",
+    label: { zh: "正式合作 Creator", en: "Confirmed creator partnerships" },
   },
 ] as const;
