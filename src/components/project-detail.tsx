@@ -16,6 +16,29 @@ export function ProjectDetail({ project }: { project: Project }) {
   const currentIndex = projects.findIndex((item) => item.slug === project.slug);
   const nextProject = projects[(currentIndex + 1) % projects.length];
 
+  const local =
+    language === "zh"
+      ? {
+          caseStudy: "CASE STUDY",
+          overview: "PROJECT OVERVIEW",
+          selectedEvidence: "SELECTED EVIDENCE",
+          visualTitle: "真实案例图预留位",
+          visualNote: "后续将替换为后台数据、Creator 内容、流程或 Campaign 截图。",
+          visualSlot: "PROJECT VISUAL",
+          resultLabel: "BUSINESS RESULT",
+          nextLabel: "CONTINUE TO NEXT CASE",
+        }
+      : {
+          caseStudy: "CASE STUDY",
+          overview: "PROJECT OVERVIEW",
+          selectedEvidence: "SELECTED EVIDENCE",
+          visualTitle: "Real project visuals reserved",
+          visualNote: "To be replaced with selected analytics, creator content, workflow, or campaign screenshots.",
+          visualSlot: "PROJECT VISUAL",
+          resultLabel: "BUSINESS RESULT",
+          nextLabel: "CONTINUE TO NEXT CASE",
+        };
+
   const textSections = [
     {
       index: "01",
@@ -28,6 +51,7 @@ export function ProjectDetail({ project }: { project: Project }) {
       content: project.problem[language],
     },
   ];
+
   const decisionSections = [
     {
       index: "03",
@@ -41,33 +65,50 @@ export function ProjectDetail({ project }: { project: Project }) {
     },
   ];
 
+  const indexLabels = [
+    copy.detailLabels.background,
+    copy.detailLabels.problem,
+    copy.detailLabels.diagnosis,
+    copy.detailLabels.decision,
+    copy.detailLabels.execution,
+    copy.detailLabels.evidence,
+    copy.detailLabels.result,
+    copy.detailLabels.reflection,
+  ];
+
   return (
-    <article>
-      <header className="container-shell pb-16 pt-10 sm:pt-14 lg:pb-24">
+    <article className="bg-paper text-ink">
+      <header className="container-shell pb-14 pt-8 sm:pb-20 sm:pt-12 lg:pb-24">
         <Link
           href="/#projects"
-          className="mb-12 inline-flex items-center gap-2 text-xs font-semibold text-muted transition-colors hover:text-ink"
+          className="mb-10 inline-flex items-center gap-2 text-xs font-semibold text-muted transition-colors hover:text-ink sm:mb-14"
         >
           <ArrowLeft size={15} aria-hidden="true" />
           {copy.backHome}
         </Link>
 
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div className="mb-7 flex items-center justify-between border-b border-border pb-4 text-[9px] font-bold uppercase tracking-[0.2em] text-muted">
+          <span>{local.caseStudy} / {project.number}</span>
+          <span>{project.category[language]}</span>
+        </div>
+
+        <div className="grid gap-10 lg:grid-cols-[1.03fr_0.97fr] lg:gap-14">
           <div className="flex flex-col justify-between">
             <div>
-              <p className="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-accent">
-                <span>{project.number}</span>
-                <span className="text-muted">{project.category[language]}</span>
+              <p className="mb-5 text-xs font-bold uppercase tracking-[0.16em] text-accent">
+                {local.overview}
               </p>
-              <h1 className="max-w-[13ch] text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
+
+              <h1 className="max-w-[13ch] text-balance text-5xl font-semibold leading-[0.96] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
                 {project.title[language]}
               </h1>
-              <p className="mt-8 max-w-2xl text-lg leading-8 text-muted">
+
+              <p className="mt-7 max-w-2xl text-base leading-8 text-muted sm:text-lg">
                 {project.summary[language]}
               </p>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-2 lg:mt-16">
+            <div className="mt-10 flex flex-wrap gap-2 lg:mt-14">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
@@ -81,22 +122,42 @@ export function ProjectDetail({ project }: { project: Project }) {
 
           <ProjectVisual project={project} />
         </div>
+
+        <div className="mt-10 grid border-l border-t border-border sm:grid-cols-3">
+          {project.evidence.slice(0, 3).map((item) => (
+            <div
+              key={`${project.slug}-${item.value}`}
+              className="min-h-36 border-b border-r border-border bg-white p-5 sm:min-h-40 sm:p-6"
+            >
+              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-muted">
+                {local.selectedEvidence}
+              </p>
+              <strong className="mt-5 block text-3xl font-semibold tracking-[-0.055em] sm:text-4xl">
+                {item.value}
+              </strong>
+              <p className="mt-3 max-w-[20ch] text-xs leading-5 text-muted">
+                {item.label[language]}
+              </p>
+            </div>
+          ))}
+        </div>
       </header>
 
-      <div className="bg-white py-20 sm:py-24">
-        <div className="container-shell grid gap-16 lg:grid-cols-[0.42fr_1.58fr] lg:gap-20">
+      <div className="border-t border-border bg-white py-16 sm:py-20 lg:py-24">
+        <div className="container-shell grid gap-14 lg:grid-cols-[0.34fr_1.66fr] lg:gap-20">
           <aside>
             <div className="sticky top-28 border-t border-ink pt-4">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
                 {copy.projectIndex}
               </p>
-              <ol className="mt-6 grid gap-3 text-sm text-muted">
-                {Object.values(copy.detailLabels).map((label, index) => (
-                  <li key={label} className="flex items-center gap-3">
-                    <span className="w-6 text-[10px] text-accent">
-                      0{index + 1}
+
+              <ol className="mt-6 grid gap-3 text-xs leading-5 text-muted">
+                {indexLabels.map((label, index) => (
+                  <li key={`${index}-${label}`} className="grid grid-cols-[1.75rem_1fr] gap-2">
+                    <span className="text-[9px] font-bold text-accent">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
-                    {label}
+                    <span>{label}</span>
                   </li>
                 ))}
               </ol>
@@ -107,13 +168,13 @@ export function ProjectDetail({ project }: { project: Project }) {
             {textSections.map((section) => (
               <section
                 key={section.label}
-                className="grid gap-5 border-t border-border py-10 sm:grid-cols-[0.42fr_1.58fr]"
+                className="grid gap-5 border-t border-border py-9 sm:grid-cols-[0.38fr_1.62fr] sm:py-11"
               >
                 <h2 className="flex gap-3 text-sm font-semibold">
                   <span className="text-accent">{section.index}</span>
                   {section.label}
                 </h2>
-                <p className="max-w-3xl text-xl leading-9 tracking-[-0.02em] sm:text-2xl">
+                <p className="max-w-3xl text-xl leading-9 tracking-[-0.025em] sm:text-2xl">
                   {section.content}
                 </p>
               </section>
@@ -122,19 +183,20 @@ export function ProjectDetail({ project }: { project: Project }) {
             {decisionSections.map((section) => (
               <section
                 key={section.label}
-                className="grid gap-5 border-t border-border py-10 sm:grid-cols-[0.42fr_1.58fr]"
+                className="grid gap-5 border-t border-border py-9 sm:grid-cols-[0.38fr_1.62fr] sm:py-11"
               >
                 <h2 className="flex gap-3 text-sm font-semibold">
                   <span className="text-accent">{section.index}</span>
                   {section.label}
                 </h2>
-                <ol className="grid gap-3">
+
+                <ol className="grid gap-0 border-t border-border">
                   {section.items.map((item, index) => (
                     <li
                       key={item}
-                      className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-border pb-4 text-base leading-7 text-muted"
+                      className="grid grid-cols-[2.75rem_1fr] gap-4 border-b border-border py-4 text-sm leading-7 text-muted sm:text-base"
                     >
-                      <span className="text-xs font-bold text-accent">
+                      <span className="text-[10px] font-bold text-accent">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       {item}
@@ -144,36 +206,76 @@ export function ProjectDetail({ project }: { project: Project }) {
               </section>
             ))}
 
-            <section className="grid gap-5 border-t border-border py-10 sm:grid-cols-[0.42fr_1.58fr]">
+            <section className="grid gap-5 border-t border-border py-9 sm:grid-cols-[0.38fr_1.62fr] sm:py-11">
               <h2 className="flex gap-3 text-sm font-semibold">
                 <span className="text-accent">05</span>
                 {copy.detailLabels.execution}
               </h2>
+
               <ul className="grid gap-3 sm:grid-cols-2">
-                {project.execution[language].map((item) => (
+                {project.execution[language].map((item, index) => (
                   <li
                     key={item}
-                    className="min-h-32 border border-border bg-paper p-5 text-sm leading-7 text-muted"
+                    className="min-h-36 border border-border bg-paper p-5 text-sm leading-7 text-muted"
                   >
-                    <span className="mb-4 block size-2 rounded-full bg-accent" />
+                    <div className="mb-7 flex items-center justify-between">
+                      <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-accent">
+                        STEP {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="size-2 rounded-full bg-accent" />
+                    </div>
                     {item}
                   </li>
                 ))}
               </ul>
             </section>
 
-            <section className="grid gap-5 border-t border-border py-10 sm:grid-cols-[0.42fr_1.58fr]">
-              <h2 className="flex gap-3 text-sm font-semibold">
-                <span className="text-accent">06</span>
-                {copy.detailLabels.evidence}
-              </h2>
-              <div className="grid gap-3 sm:grid-cols-3">
+            <section className="border-t border-border py-9 sm:py-11">
+              <div className="mb-6 grid gap-5 sm:grid-cols-[0.38fr_1.62fr]">
+                <h2 className="flex gap-3 text-sm font-semibold">
+                  <span className="text-accent">06</span>
+                  {copy.detailLabels.evidence}
+                </h2>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
+                    {local.visualTitle}
+                  </p>
+                  <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
+                    {local.visualNote}
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-[1.15fr_0.85fr]">
+                <div className="grid min-h-72 place-items-center border border-dashed border-border bg-paper p-6 sm:min-h-80">
+                  <div className="text-center">
+                    <div className="mx-auto mb-4 grid size-11 place-items-center rounded-full border border-border bg-white text-lg text-accent">
+                      +
+                    </div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
+                      {local.visualSlot} 01
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid gap-4">
+                  <div className="grid min-h-36 place-items-center border border-dashed border-border bg-paper p-5">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
+                      {local.visualSlot} 02
+                    </p>
+                  </div>
+                  <div className="grid min-h-36 place-items-center border border-dashed border-border bg-paper p-5">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
+                      {local.visualSlot} 03
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
                 {project.evidence.map((item) => (
-                  <div
-                    key={item.value}
-                    className="border border-border bg-paper p-5"
-                  >
-                    <strong className="block text-3xl tracking-[-0.05em] text-ink">
+                  <div key={item.value} className="border border-border p-5">
+                    <strong className="block text-3xl font-semibold tracking-[-0.055em]">
                       {item.value}
                     </strong>
                     <span className="mt-3 block text-sm leading-6 text-muted">
@@ -189,17 +291,23 @@ export function ProjectDetail({ project }: { project: Project }) {
               </div>
             </section>
 
-            <section className="grid gap-5 border-t border-border py-10 sm:grid-cols-[0.42fr_1.58fr]">
+            <section className="grid gap-5 border-t border-border py-9 sm:grid-cols-[0.38fr_1.62fr] sm:py-11">
               <h2 className="flex gap-3 text-sm font-semibold">
                 <span className="text-accent">07</span>
                 {copy.detailLabels.result}
               </h2>
-              <p className="border-l-2 border-accent pl-6 text-2xl font-semibold leading-9 tracking-[-0.03em] sm:text-3xl">
-                {project.result[language]}
-              </p>
+
+              <div className="bg-ink p-6 text-white sm:p-8">
+                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#e46d7d]">
+                  {local.resultLabel}
+                </p>
+                <p className="mt-5 text-2xl font-semibold leading-9 tracking-[-0.035em] sm:text-3xl sm:leading-10">
+                  {project.result[language]}
+                </p>
+              </div>
             </section>
 
-            <section className="grid gap-5 border-y border-border py-10 sm:grid-cols-[0.42fr_1.58fr]">
+            <section className="grid gap-5 border-y border-border py-9 sm:grid-cols-[0.38fr_1.62fr] sm:py-11">
               <h2 className="flex gap-3 text-sm font-semibold">
                 <span className="text-accent">08</span>
                 {copy.detailLabels.reflection}
@@ -213,25 +321,35 @@ export function ProjectDetail({ project }: { project: Project }) {
       </div>
 
       <section className="bg-ink py-16 text-white sm:py-20">
-        <div className="container-shell grid gap-10 md:grid-cols-[0.5fr_1.5fr] md:items-end">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#e46d7d]">
-              {copy.nextProject}
-            </p>
-            <p className="mt-5 text-sm text-white/50">{nextProject.category[language]}</p>
+        <div className="container-shell">
+          <div className="mb-8 flex items-center justify-between border-b border-white/15 pb-4 text-[9px] font-bold uppercase tracking-[0.18em] text-white/45">
+            <span>{copy.nextProject}</span>
+            <span>{local.nextLabel}</span>
           </div>
+
           <Link
             href={`/projects/${nextProject.slug}`}
-            className="group flex items-end justify-between gap-6 border-t border-white/20 pt-6"
+            className="group grid gap-6 md:grid-cols-[0.5fr_1.5fr] md:items-end"
           >
-            <h2 className="max-w-[16ch] text-3xl font-semibold leading-tight tracking-[-0.045em] sm:text-5xl">
-              {nextProject.title[language]}
-            </h2>
-            <ArrowRight
-              size={32}
-              className="shrink-0 transition-transform group-hover:translate-x-2"
-              aria-hidden="true"
-            />
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#e46d7d]">
+                CASE {nextProject.number}
+              </p>
+              <p className="mt-3 text-sm text-white/45">
+                {nextProject.category[language]}
+              </p>
+            </div>
+
+            <div className="flex items-end justify-between gap-6">
+              <h2 className="max-w-[17ch] text-3xl font-semibold leading-tight tracking-[-0.045em] sm:text-5xl">
+                {nextProject.title[language]}
+              </h2>
+              <ArrowRight
+                size={32}
+                className="shrink-0 transition-transform group-hover:translate-x-2"
+                aria-hidden="true"
+              />
+            </div>
           </Link>
         </div>
       </section>
