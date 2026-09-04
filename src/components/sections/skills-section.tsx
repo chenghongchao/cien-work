@@ -21,52 +21,41 @@ export function SkillsSection() {
 
         <div className="grid gap-px border border-border bg-border md:grid-cols-2">
           {skillGroups.map((group, index) => (
-            <article key={group.title.en} className="bg-white p-6 sm:p-8 lg:p-9">
-              <div className="flex items-start justify-between gap-6">
+            <article key={group.title.en} className="bg-white p-6 sm:p-8">
+              <div className="mb-8 flex items-start justify-between gap-5">
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-accent">
-                    Capability {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em]">
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] sm:text-2xl">
                     {group.title[language]}
                   </h3>
-                  <p className="mt-3 max-w-xl text-sm leading-7 text-muted">
+                  <p className="mt-2 text-sm leading-6 text-muted">
                     {group.description[language]}
                   </p>
                 </div>
+                <span className="text-xs font-bold text-accent">
+                  0{index + 1}
+                </span>
               </div>
-
-              <div className="mt-8 grid gap-2 sm:grid-cols-2">
+              <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <div
+                  <span
                     key={item}
-                    className="border-t border-border py-3 text-xs font-semibold text-muted"
+                    className="rounded-full border border-border bg-paper px-3 py-2 text-xs font-medium text-muted"
                   >
                     {item}
-                  </div>
+                  </span>
                 ))}
               </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-12 grid gap-6 border-y border-border py-8 md:grid-cols-[0.35fr_1.65fr]">
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
-              {copy.tools}
-            </h3>
-            <p className="mt-2 text-xs leading-5 text-muted">
-              Social · Creator · Content · Operations
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2">
+        <div className="mt-12 grid gap-6 border-y border-border py-7 md:grid-cols-[0.4fr_1.6fr]">
+          <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
+            {copy.tools}
+          </h3>
+          <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-muted">
             {tools.map((tool) => (
-              <span
-                key={tool}
-                className="rounded-full border border-border bg-paper px-3 py-2 text-xs font-semibold text-muted"
-              >
-                {tool}
-              </span>
+              <span key={tool}>{tool}</span>
             ))}
           </div>
         </div>
