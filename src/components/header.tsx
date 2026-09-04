@@ -16,42 +16,42 @@ export function Header() {
   const resumeUrl = profile.resume[language];
 
   const links = [
-    { label: copy.nav.about, href: "/#about" },
-    { label: copy.nav.experience, href: "/#experience" },
     { label: copy.nav.projects, href: "/#projects" },
+    { label: copy.nav.experience, href: "/#experience" },
     { label: copy.nav.skills, href: "/#skills" },
+    { label: copy.nav.about, href: "/#about" },
     { label: copy.nav.contact, href: "/#contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-paper/92 backdrop-blur-xl">
-      <div className="container-shell flex h-[72px] items-center justify-between gap-6">
+    <header className="sticky top-0 z-50 border-b border-border/80 bg-paper/95 backdrop-blur-xl">
+      <div className="container-shell flex h-16 items-center justify-between gap-4 sm:h-[72px] sm:gap-6">
         <Link
           href="/#home"
-          className="flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          className="flex min-w-0 items-center gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           onClick={() => setOpen(false)}
         >
-          <span className="grid size-9 place-items-center rounded-full bg-ink text-sm font-bold text-white">
+          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-ink text-sm font-bold text-white">
             C
           </span>
-          <span className="hidden text-sm font-semibold tracking-[-0.02em] sm:block">
+          <span className="hidden truncate text-sm font-semibold tracking-[-0.02em] sm:block">
             Cien <span className="font-normal text-muted">/ 程红超</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs font-medium text-muted transition-colors hover:text-ink"
+              className="text-xs font-semibold text-muted transition-colors hover:text-ink"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <div
             className="flex rounded-full border border-border bg-white p-1"
             aria-label="Language"
@@ -77,14 +77,14 @@ export function Header() {
             <a
               href={resumeUrl}
               download
-              className="hidden items-center gap-2 rounded-full border border-ink px-4 py-2 text-xs font-semibold transition-colors hover:bg-ink hover:text-white sm:flex"
+              className="hidden items-center gap-2 rounded-full border border-ink px-4 py-2 text-xs font-semibold transition-colors hover:bg-ink hover:text-white md:flex"
             >
               <ArrowDownToLine size={14} aria-hidden="true" />
               {copy.downloadResume}
             </a>
           ) : (
             <span
-              className="hidden cursor-not-allowed items-center gap-2 rounded-full border border-border px-4 py-2 text-xs font-semibold text-muted sm:flex"
+              className="hidden cursor-default items-center gap-2 rounded-full border border-border px-4 py-2 text-xs font-semibold text-muted md:flex"
               title={copy.resumeSoon}
             >
               <ArrowDownToLine size={14} aria-hidden="true" />
@@ -106,10 +106,10 @@ export function Header() {
 
       {open ? (
         <nav
-          className="container-shell border-t border-border bg-paper py-5 lg:hidden"
+          className="container-shell border-t border-border bg-paper py-3 lg:hidden"
           aria-label="Mobile"
         >
-          <div className="grid gap-1">
+          <div className="grid">
             {links.map((link, index) => (
               <Link
                 key={link.href}
@@ -119,7 +119,7 @@ export function Header() {
               >
                 {link.label}
                 <span className="text-xs font-medium text-accent">
-                  0{index + 1}
+                  {String(index + 1).padStart(2, "0")}
                 </span>
               </Link>
             ))}
