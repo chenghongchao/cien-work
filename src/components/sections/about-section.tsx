@@ -19,18 +19,18 @@ export function AboutSection() {
           title={copy.sectionAbout}
         />
 
-        <div className="grid gap-12 lg:grid-cols-[0.38fr_1.62fr] lg:gap-20">
+        <div className="grid gap-10 lg:grid-cols-[0.34fr_1.66fr] lg:gap-16">
           <aside>
             <div className="sticky top-28 border-t border-ink pt-5">
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
                 Current positioning
               </p>
-              <p className="mt-4 max-w-xs text-xl font-semibold leading-8 tracking-[-0.03em]">
+              <p className="mt-4 max-w-xs text-lg font-semibold leading-7 tracking-[-0.03em]">
                 {profile.role[language]}
               </p>
-              <p className="mt-4 text-sm text-muted">{profile.company}</p>
+              <p className="mt-3 text-sm text-muted">{profile.company}</p>
 
-              <div className="mt-8 border-t border-border pt-5">
+              <div className="mt-7 border-t border-border pt-5">
                 <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-muted">
                   Market
                 </p>
@@ -40,14 +40,14 @@ export function AboutSection() {
           </aside>
 
           <div>
-            <div className="grid gap-8">
+            <div className="grid max-w-5xl gap-6">
               {profile.about[language].map((paragraph, index) => (
                 <p
                   key={paragraph}
-                  className={`max-w-5xl leading-[1.72] tracking-[-0.025em] ${
+                  className={`leading-[1.72] tracking-[-0.02em] ${
                     index === 0
-                      ? "text-2xl font-medium sm:text-3xl lg:text-[2.6rem] lg:leading-[1.45]"
-                      : "text-base text-muted sm:text-lg"
+                      ? "text-xl font-medium sm:text-2xl lg:text-[2rem] lg:leading-[1.55]"
+                      : "text-base text-muted sm:text-[1.05rem]"
                   }`}
                 >
                   {paragraph}
@@ -55,7 +55,7 @@ export function AboutSection() {
               ))}
             </div>
 
-            <blockquote className="mt-10 border-l-2 border-accent bg-paper px-6 py-6 text-xl font-semibold leading-8 tracking-[-0.025em] sm:text-2xl">
+            <blockquote className="mt-8 border-l-2 border-accent bg-paper px-5 py-5 text-lg font-semibold leading-8 tracking-[-0.02em] sm:text-xl">
               “{profile.workingPrinciple[language]}”
             </blockquote>
           </div>
