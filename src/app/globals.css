@@ -29,6 +29,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
@@ -54,12 +55,12 @@ a {
 }
 
 .container-shell {
-  width: min(100% - 2.5rem, 1440px);
+  width: min(100% - 2rem, 1440px);
   margin-inline: auto;
 }
 
 .section-pad {
-  padding-block: clamp(5rem, 9vw, 8.5rem);
+  padding-block: clamp(4.25rem, 8vw, 8.5rem);
 }
 
 .vertical-label {
@@ -113,6 +114,18 @@ a {
 @media (min-width: 640px) {
   .container-shell {
     width: min(100% - 4rem, 1440px);
+  }
+}
+
+@media (max-width: 639px) {
+  h1,
+  h2,
+  h3,
+  p,
+  li,
+  a,
+  span {
+    overflow-wrap: anywhere;
   }
 }
 
