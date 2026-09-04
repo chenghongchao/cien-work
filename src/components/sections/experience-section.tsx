@@ -19,45 +19,53 @@ export function ExperienceSection() {
           title={copy.sectionExperience}
         />
 
-        <article className="grid gap-10 border-b border-border pb-12 lg:grid-cols-[0.45fr_1.55fr] lg:gap-16">
-          <div>
-            <p className="text-3xl font-semibold tracking-[-0.05em]">
-              {experience.company}
-            </p>
-            <p className="mt-3 text-sm font-medium text-accent">
-              {experience.period}
-            </p>
-            <p className="mt-6 max-w-sm text-sm leading-7 text-muted">
-              {experience.context[language]}
-            </p>
-          </div>
+        <article className="grid gap-12 lg:grid-cols-[0.42fr_1.58fr] lg:gap-20">
+          <aside>
+            <div className="sticky top-28 border-t border-ink pt-5">
+              <p className="text-4xl font-semibold tracking-[-0.06em]">
+                {experience.company}
+              </p>
+              <p className="mt-3 text-sm font-semibold text-accent">
+                {experience.period}
+              </p>
+              <p className="mt-6 max-w-sm text-sm leading-7 text-muted">
+                {experience.context[language]}
+              </p>
+            </div>
+          </aside>
 
           <div>
-            <h3 className="mb-10 max-w-3xl text-2xl font-semibold leading-tight tracking-[-0.035em] sm:text-3xl">
+            <h3 className="max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.045em] sm:text-4xl">
               {experience.role[language]}
             </h3>
 
-            <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-3">
+            <div className="mt-10 grid gap-6">
               {experience.groups.map((group, groupIndex) => (
-                <div key={group.title.en} className="bg-white p-6 sm:p-7">
-                  <div className="mb-8 flex items-center justify-between">
-                    <h4 className="font-semibold">{group.title[language]}</h4>
-                    <span className="text-xs font-semibold text-accent">
-                      0{groupIndex + 1}
+                <section
+                  key={group.title.en}
+                  className="grid gap-5 border-t border-border pt-6 sm:grid-cols-[0.42fr_1.58fr]"
+                >
+                  <div>
+                    <span className="text-[10px] font-bold text-accent">
+                      {String(groupIndex + 1).padStart(2, "0")}
                     </span>
+                    <h4 className="mt-2 text-lg font-semibold tracking-[-0.03em]">
+                      {group.title[language]}
+                    </h4>
                   </div>
-                  <ul className="grid gap-4">
+
+                  <ul className="grid gap-3 sm:grid-cols-2">
                     {group.items[language].map((item) => (
                       <li
                         key={item}
-                        className="flex gap-3 text-sm leading-6 text-muted"
+                        className="min-h-28 border border-border bg-white p-5 text-sm leading-7 text-muted"
                       >
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
+                        <span className="mb-4 block h-px w-8 bg-accent" />
                         {item}
                       </li>
                     ))}
                   </ul>
-                </div>
+                </section>
               ))}
             </div>
           </div>
