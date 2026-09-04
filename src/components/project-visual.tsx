@@ -14,7 +14,57 @@ const panelStyles: Record<Project["accent"], string> = {
   paper: "border-black/15 bg-white/45",
 };
 
+const visualMap: Record<
+  string,
+  { label: string; title: string; steps: string[] }
+> = {
+  "us-creator-pipeline": {
+    label: "OPERATING MODEL",
+    title: "Creator Pipeline",
+    steps: ["Source", "Review", "Negotiate", "Seed", "Publish", "Settle"],
+  },
+  "north-america-audience-repositioning": {
+    label: "AUDIENCE SYSTEM",
+    title: "Signal Repositioning",
+    steps: ["Audit", "Reset", "Test", "Measure", "Refine"],
+  },
+  "multi-platform-social-system": {
+    label: "CHANNEL SYSTEM",
+    title: "Multi-platform Operations",
+    steps: ["TikTok", "Instagram", "Facebook", "YouTube", "Pinterest"],
+  },
+  "creator-publishing-tracking-operations": {
+    label: "DELIVERY SYSTEM",
+    title: "Partnership Delivery",
+    steps: ["Product", "Logistics", "Review", "Tracking", "Live", "Payment"],
+  },
+  "facebook-community-member-day": {
+    label: "COMMUNITY SYSTEM",
+    title: "Community Loop",
+    steps: ["Content", "Group", "Campaign", "Repeat Reach", "Orders"],
+  },
+};
+
+function getDisplayEvidence(project: Project) {
+  if (project.slug === "facebook-community-member-day") {
+    return [
+      { value: "0→14" },
+      { value: "Orders" },
+      { value: "Recurring" },
+    ];
+  }
+
+  return project.evidence.slice(0, 3).map((item) => ({ value: item.value }));
+}
+
 export function ProjectVisual({ project }: { project: Project }) {
+  const visual = visualMap[project.slug] ?? {
+    label: "OPERATING MODEL",
+    title: "Case System",
+    steps: project.tags.slice(0, 5),
+  };
+  const evidence = getDisplayEvidence(project);
+
   return (
     <div
       className={`relative min-h-80 overflow-hidden p-5 sm:min-h-[22rem] sm:p-7 ${styles[project.accent]}`}
@@ -25,28 +75,28 @@ export function ProjectVisual({ project }: { project: Project }) {
         <span>Cien · 2026</span>
       </div>
 
-      <div className="grid gap-4 pt-5 sm:grid-cols-[1.15fr_0.85fr]">
-        <div className={`flex min-h-48 flex-col justify-between border p-4 sm:min-h-56 sm:p-5 ${panelStyles[project.accent]}`}>
+      <div className="grid gap-4 pt-5 sm:grid-cols-[1.12fr_0.88fr]">
+        <div className={`flex min-h-56 flex-col justify-between border p-4 sm:p-5 ${panelStyles[project.accent]}`}>
           <div>
-            <p className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-60">
-              Project evidence
+            <p className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-55">
+              {visual.label}
             </p>
-            <p className="mt-2 max-w-[22ch] text-sm font-semibold leading-5">
-              Real screenshots and analytics will be added here.
+            <p className="mt-2 max-w-[18ch] text-xl font-semibold leading-tight tracking-[-0.04em] sm:text-2xl">
+              {visual.title}
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2">
-            {project.evidence.slice(0, 3).map((item) => (
+          <div className="mt-8 grid grid-cols-2 gap-2">
+            {visual.steps.map((step, index) => (
               <div
-                key={`${project.slug}-${item.value}`}
-                className="border-t border-current/20 pt-3"
+                key={`${project.slug}-${step}`}
+                className="flex items-center gap-2 border-t border-current/20 pt-2.5"
               >
-                <strong className="block text-xl font-semibold tracking-[-0.05em] sm:text-2xl">
-                  {item.value}
-                </strong>
-                <span className="mt-1 block text-[8px] font-bold uppercase tracking-[0.14em] opacity-55">
-                  Evidence
+                <span className="text-[8px] font-bold opacity-45">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="text-[9px] font-bold uppercase tracking-[0.12em]">
+                  {step}
                 </span>
               </div>
             ))}
@@ -55,25 +105,32 @@ export function ProjectVisual({ project }: { project: Project }) {
 
         <div className="grid gap-4">
           <div className={`border p-4 ${panelStyles[project.accent]}`}>
-            <div className="mb-4 flex items-center justify-between text-[8px] font-bold uppercase tracking-[0.18em] opacity-60">
-              <span>Visual slot 01</span>
-              <span>4:3</span>
-            </div>
-            <div className="grid aspect-[4/3] place-items-center border border-dashed border-current/30">
-              <div className="text-center">
-                <div className="mx-auto mb-3 grid size-9 place-items-center rounded-full border border-current/30 text-base">
-                  +
+            <p className="text-[8px] font-bold uppercase tracking-[0.18em] opacity-55">
+              Verified signals
+            </p>
+
+            <div className="mt-6 grid gap-4">
+              {evidence.map((item, index) => (
+                <div
+                  key={`${project.slug}-${item.value}-${index}`}
+                  className="border-t border-current/20 pt-3"
+                >
+                  <div className="flex items-end justify-between gap-3">
+                    <strong className="text-2xl font-semibold tracking-[-0.055em] sm:text-3xl">
+                      {item.value}
+                    </strong>
+                    <span className="text-[8px] font-bold uppercase tracking-[0.14em] opacity-45">
+                      Signal {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
                 </div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] opacity-60">
-                  Analytics / Screenshot
-                </p>
-              </div>
+              ))}
             </div>
           </div>
 
           <div className={`flex items-center justify-between border px-4 py-3 ${panelStyles[project.accent]}`}>
-            <span className="text-[8px] font-bold uppercase tracking-[0.18em] opacity-60">
-              Real visual pending
+            <span className="text-[8px] font-bold uppercase tracking-[0.18em] opacity-55">
+              Operational case
             </span>
             <span className="text-sm font-semibold">
               {project.number} / {String(projects.length).padStart(2, "0")}
