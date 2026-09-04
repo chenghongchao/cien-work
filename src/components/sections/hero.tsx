@@ -15,28 +15,32 @@ export function Hero() {
       ? {
           eyebrow: "NORTH AMERICA SOCIAL / CREATOR OPERATIONS",
           title1: "把海外社媒做成",
-          title2: "真正能运转的业务系统。",
+          title2: "真正能运转的",
+          title3: "业务系统。",
           description:
-            "独立负责品牌海外社媒运营，并从 0 搭建美国 Creator / KOL 合作 Pipeline。覆盖内容策略、受众校准、商务判断、合作执行、上线追踪、数据复盘与跨部门项目推进。",
+            "独立负责品牌海外社媒运营，并从 0 到 1 搭建美国 Creator / KOL 合作体系。覆盖多平台内容、北美受众校准、商务判断、合作执行、上线追踪、数据复盘与跨部门项目闭环。",
           work: "查看代表项目",
           contact: "联系我",
           portraitLabel: "SOCIAL & CREATOR OPERATIONS",
-          status: "Available for Lead / Manager opportunities",
+          status: "目标：Lead / Manager · 团队管理",
           market: "North America",
           role: "Social Media × Creator Operations",
+          currentFocus: "Current focus",
         }
       : {
           eyebrow: "NORTH AMERICA SOCIAL / CREATOR OPERATIONS",
           title1: "Building social operations",
-          title2: "that actually work.",
+          title2: "that actually",
+          title3: "work.",
           description:
-            "I independently manage multi-platform social operations and built a U.S. Creator / KOL pipeline from 0 to 1 — spanning content strategy, audience repositioning, commercial evaluation, campaign execution, tracking and cross-functional delivery.",
+            "I independently manage multi-platform social operations and built a U.S. Creator / KOL operation from 0 to 1 — spanning content strategy, audience repositioning, commercial judgment, delivery, tracking, reporting, and cross-functional execution.",
           work: "View selected work",
           contact: "Contact me",
           portraitLabel: "SOCIAL & CREATOR OPERATIONS",
-          status: "Available for Lead / Manager opportunities",
+          status: "Targeting Lead / Manager opportunities",
           market: "North America",
           role: "Social Media × Creator Operations",
+          currentFocus: "Current focus",
         };
 
   return (
@@ -54,16 +58,15 @@ export function Hero() {
       </div>
 
       <div className="grid items-center gap-12 lg:grid-cols-[1.18fr_0.82fr] lg:gap-16">
-        {/* LEFT */}
         <div>
           <p className="mb-6 text-sm font-semibold text-accent">
             {profile.positioning[language]}
           </p>
 
-          <h1 className="max-w-[12ch] text-balance text-[clamp(3.2rem,7.5vw,7.5rem)] font-semibold leading-[0.9] tracking-[-0.075em]">
-            {copy.title1}
-            <br />
-            <span className="text-accent">{copy.title2}</span>
+          <h1 className="text-balance text-[clamp(3rem,6vw,6.2rem)] font-semibold leading-[0.92] tracking-[-0.065em]">
+            <span className="block">{copy.title1}</span>
+            <span className="block text-accent">{copy.title2}</span>
+            <span className="block text-accent">{copy.title3}</span>
           </h1>
 
           <p className="mt-8 max-w-2xl text-base leading-8 text-muted sm:text-lg">
@@ -95,7 +98,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* RIGHT */}
         <div className="relative mx-auto w-full max-w-xl lg:mx-0 lg:justify-self-end">
           <div className="absolute -left-5 -top-5 hidden h-full w-full border border-border lg:block" />
 
@@ -126,11 +128,9 @@ export function Hero() {
             <div className="grid grid-cols-[1fr_auto] items-center gap-4 border-t border-border p-4">
               <div>
                 <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-muted">
-                  Current focus
+                  {copy.currentFocus}
                 </p>
-                <p className="mt-1 text-sm font-semibold">
-                  {copy.role}
-                </p>
+                <p className="mt-1 text-sm font-semibold">{copy.role}</p>
               </div>
 
               <ArrowRight
