@@ -11,29 +11,38 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Cien｜海外社媒与 KOL 运营负责人",
-    template: "%s",
+    default: "Cien | Social Media & Creator Operations",
+    template: "%s | Cien",
   },
   description:
-    "Cien 的个人作品集：独立负责 FlyAchilles 与 Pulens 两个北美品牌的社媒、创作者合作与运营系统搭建。",
+    "Cien's portfolio: North America-focused social media operations, creator partnerships, audience repositioning, project ownership, and end-to-end operating systems.",
+  keywords: [
+    "Social Media Operations",
+    "Creator Operations",
+    "KOL Operations",
+    "North America Social Media",
+    "Creator Partnerships",
+    "Project Ownership",
+    "Cien Portfolio",
+  ],
   authors: [{ name: `${profile.name} / ${profile.chineseName}` }],
   creator: profile.name,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    locale: "zh_CN",
-    alternateLocale: ["en_US"],
+    locale: "en_US",
+    alternateLocale: ["zh_CN"],
     url: "/",
-    title: "Cien｜海外社媒与 KOL 运营负责人",
+    title: "Cien | Social Media & Creator Operations",
     description:
-      "独立负责两个北美品牌的内容策略、创作者合作、数据复盘与可扩展运营系统。",
+      "North America-focused social and creator operations: content systems, audience repositioning, creator pipelines, commercial judgment, and cross-functional delivery.",
     siteName: "Cien Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cien | Social Media & Creator Operations Lead",
+    title: "Cien | Social Media & Creator Operations",
     description:
-      "Operating two North American brands across creator partnerships, content strategy, performance analysis, and scalable workflows.",
+      "North America-focused social media and creator operations portfolio, covering strategy, creator partnerships, systems, and project delivery.",
   },
 };
 
