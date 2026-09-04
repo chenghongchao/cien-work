@@ -17,16 +17,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const project = getProjectBySlug(slug);
 
   if (!project) {
-    return { title: "Project not found" };
+    return { title: "Case study not found" };
   }
 
+  const title = `${project.title.en} | Case Study`;
+  const description = project.summary.en;
+
   return {
-    title: `${project.title.zh} | Cien`,
-    description: project.summary.zh,
+    title,
+    description,
+    alternates: { canonical: `/projects/${project.slug}` },
     openGraph: {
-      title: `${project.title.zh} | Cien`,
-      description: project.summary.zh,
+      title,
+      description,
       type: "article",
+      url: `/projects/${project.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
