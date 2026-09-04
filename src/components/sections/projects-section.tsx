@@ -14,11 +14,35 @@ export function ProjectsSection() {
   const { language } = useLanguage();
   const copy = ui[language];
 
+  const getEvidence = (project: (typeof projects)[number]) => {
+    if (project.slug === "facebook-community-member-day") {
+      return [
+        {
+          value: "0→14",
+          label: language === "zh" ? "Facebook Group 成员" : "Facebook Group members",
+        },
+        {
+          value: language === "zh" ? "已产生" : "Yes",
+          label: language === "zh" ? "实际订单" : "Orders generated",
+        },
+        {
+          value: language === "zh" ? "固定" : "Recurring",
+          label: language === "zh" ? "会员营销节点" : "Member campaign",
+        },
+      ];
+    }
+
+    return project.evidence.slice(0, 3).map((item) => ({
+      value: item.value,
+      label: item.label[language],
+    }));
+  };
+
   return (
     <section id="projects" className="section-pad scroll-mt-20 border-y border-border bg-[#f4f2ed]">
       <div className="container-shell">
         <SectionHeading
-          index="03"
+          index="01"
           kicker={copy.sectionProjectsKicker}
           title={copy.sectionProjects}
           note={copy.sectionProjectsNote}
@@ -27,6 +51,7 @@ export function ProjectsSection() {
         <div className="mt-12 space-y-6 sm:mt-16 sm:space-y-8">
           {projects.map((project, index) => {
             const featured = index === 0;
+            const evidence = getEvidence(project);
 
             return (
               <article
@@ -81,16 +106,16 @@ export function ProjectsSection() {
 
                     <div className="mt-10">
                       <div className="grid grid-cols-3 border-l border-t border-border">
-                        {project.evidence.slice(0, 3).map((item) => (
+                        {evidence.map((item, evidenceIndex) => (
                           <div
-                            key={`${project.slug}-${item.value}`}
+                            key={`${project.slug}-${item.value}-${evidenceIndex}`}
                             className="min-h-24 border-b border-r border-border p-3 sm:min-h-28 sm:p-4"
                           >
                             <strong className="block text-xl font-semibold tracking-[-0.05em] sm:text-2xl">
                               {item.value}
                             </strong>
                             <span className="mt-2 block text-[9px] font-semibold leading-4 text-muted">
-                              {item.label[language]}
+                              {item.label}
                             </span>
                           </div>
                         ))}
