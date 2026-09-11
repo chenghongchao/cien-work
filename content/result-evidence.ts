@@ -14,14 +14,14 @@ export const evidenceItems: EvidenceItem[] = [
   {"id":"platform-01","category":"platform","title":{"zh":"Pinterest 月浏览量","en":"Pinterest monthly views"},"src":"/images/results-2026-09/03-pinterest-monthly-views.png","alt":{"zh":"Pinterest 主页最新月浏览量约 19 万；主页显示快照。","en":"Latest Pinterest profile snapshot showing approximately 190K monthly views."}},
   {"id":"platform-02","category":"platform","title":{"zh":"Instagram 平台表现","en":"Instagram performance"},"src":"/images/results-2026-09/04-instagram-performance.png","alt":{"zh":"Instagram 浏览量 141,532，链接点击 1,541；2026 年 5 月 12 日至 9 月 9 日。","en":"Instagram: 141,532 views and 1,541 link clicks, May 12–September 9, 2026."}},
   {"id":"platform-03","category":"platform","title":{"zh":"Facebook 平台表现","en":"Facebook performance"},"src":"/images/results-2026-09/05-facebook-performance.png","alt":{"zh":"Facebook 浏览量约 40.6 万、浏览人数约 15.5 万、链接点击 9,839；2026 年 5 月 12 日至 9 月 11 日。","en":"Facebook: approximately 406K views, 155K viewers and 9,839 link clicks, May 12–September 11, 2026."}},
-  {"id":"platform-04","category":"platform","title":{"zh":"YouTube · 数据口径核验中","en":"YouTube · Data verification pending"},"src":null,"alt":{"zh":"YouTube 数据提示待核验，暂不展示相关成果数字。","en":"YouTube data notice awaiting verification; related performance figures are not published."}},
+  {"id":"platform-04","category":"platform","title":{"zh":"YouTube 内容观看表现","en":"YouTube viewing performance"},"src":"/images/results-2026-09/06-youtube-performance.png","alt":{"zh":"YouTube 观看次数 1,594,156，平均观看时长 0:23，平均观看百分比 86.7%；2026 年 5 月 12 日至 9 月 9 日，含广告贡献。","en":"YouTube: 1,594,156 views, 0:23 average view duration and 86.7% average percentage viewed, May 12–September 9, 2026; includes paid traffic."}},
   {"id":"creator-01","category":"creator","title":{"zh":"Creator 真实合作内容","en":"Creator collaboration content"},"src":"/images/results-2026-09/07-creator-content.png","alt":{"zh":"真实 Creator 合作视频中的居家灯光场景；本人负责合作推进与内容审核。","en":"A real creator collaboration video still showing home lighting; Cien owned partnership coordination and content review."}},
   {"id":"creator-02","category":"creator","title":{"zh":"独立搭建合作标准体系","en":"Creator partnership operating system"},"src":"/images/results-2026-09/08-creator-workflow.png","alt":{"zh":"独立搭建从开发筛选到上线追踪和数据复盘的 Creator 全流程标准。","en":"Independently built creator operating standards from sourcing and screening through launch tracking and performance review."}},
 ];
 
 export const evidenceCopy = {
-  zh: { eyebrow: "成果影像 / 08", title: "让工作，被看见。", all: "全部", website: "站外引流", platform: "平台数据", creator: "红人合作", pending: "数据口径核验中", zoom: "放大查看", close: "关闭图片", count: "个展示位置" },
-  en: { eyebrow: "EVIDENCE / 08", title: "The work, in view.", all: "All", website: "Referrals", platform: "Platforms", creator: "Creators", pending: "Data verification pending", zoom: "View image", close: "Close image", count: "image spaces" },
+  zh: { eyebrow: "成果影像 / 08", title: "让工作，被看见。", all: "全部", website: "站外引流", platform: "平台数据", creator: "红人合作", pending: "图片暂不可用", zoom: "放大查看", close: "关闭图片", count: "个展示位置" },
+  en: { eyebrow: "EVIDENCE / 08", title: "The work, in view.", all: "All", website: "Referrals", platform: "Platforms", creator: "Creators", pending: "Image temporarily unavailable", zoom: "View image", close: "Close image", count: "image spaces" },
 };
 
 export const projectSummaries: Record<string, { zh: string; en: string }> = {
