@@ -10,5 +10,5 @@ export const routes: { key: PageKey; href: string }[] = [
   { key: "home", href: "/" }, { key: "capabilities", href: "/capabilities" },
   { key: "results", href: "/results" }, { key: "methodology", href: "/methodology" }, { key: "contact", href: "/contact" },
 ];
-export const resume = { href: "/downloads/Cien_Resume_ZH.docx", filename: "Cien_Resume_ZH.docx" };
+export const resume = { href: "/downloads/Cien_Resume_ZH_2026-09.pdf", filename: "Cien_Resume_ZH.pdf" };
 export const contact = { phone: "15768637644", email: "ciens.work@gmail.com" };
