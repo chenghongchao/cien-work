@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "@fontsource-variable/instrument-sans/wght.css";
 import "@fontsource-variable/newsreader/wght-italic.css";
 import "./globals.css";
@@ -24,7 +25,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" translate="no">
-      <body><SiteProvider><HomeNavigation />{children}<SiteMotion /></SiteProvider></body>
+      <body>
+        <SiteProvider>
+          <HomeNavigation />
+          {children}
+          <SiteMotion />
+        </SiteProvider>
+        <Analytics />
+      </body>
     </html>
   );
 }
